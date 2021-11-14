@@ -2,6 +2,7 @@ plugins {
     id 'java-library'
     id 'kotlin'
     id 'kotlin-kapt'
+    id 'maven-publish'
 }
 
 java {
@@ -10,8 +11,19 @@ java {
 }
 
 dependencies {
-    //kotlin 파일을 편하게 만들어주기 위한 라이브러리 입니다.
     implementation 'com.squareup:kotlinpoet:1.8.0'
-
     implementation project(":lib_anno")
+}
+
+afterEvaluate {
+    publishing {
+        publications {
+            release(MavenPublication) {
+                from components.java
+                groupId = 'com.kdjj'
+                artifactId = 'lib_anno_pro'
+                version = '0.1'
+            }
+        }
+    }
 }
