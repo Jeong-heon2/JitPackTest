@@ -20,9 +20,9 @@ afterEvaluate {
         publications {
             release(MavenPublication) {
                 from components.java
-                groupId = 'com.kdjj'
+                groupId = 'com.kdjj.lib_anno_pro'
                 artifactId = 'lib_anno_pro'
-                version = '0.1'
+                version = '0.2'
             }
         }
     }
